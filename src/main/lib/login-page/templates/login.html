@@ -1,0 +1,30 @@
+<div class="login-parent">
+    <div class="loginform form form-vertical">
+        <div>
+            <h3 class="heading">
+                <i class="icon icon-home"></i>
+                Login to <%-i18n['app.name']%>
+            </h3>
+            <br>
+        </div>
+        <form class="form" method="POST" action="login.do" autocomplete="off">
+            <div class="control-group">
+                <label class="control-label" for="username"> Username:  </label>
+                <div class="controls"><input name="username" type="text" id="username" class="span5" placeholder="Username" value="<%- username || '' %>"></div>
+            </div>
+            <div class="control-group">
+                <label class="control-label" for="password"> Password:  </label>
+                <div class="controls"><input name="password" type="password" id="password" class="span5" placeholder="Password"></div>
+            </div>
+<% if (error) {%>
+            <div class="alert alert-error">
+                <%- error %>
+            </div>
+<% } %>
+            <div class="form-actions">
+                <button type="submit" class="btn btn-primary pull-right"> <i class="icon icon-white icon-hand-right"></i> Login</button>
+            </div>
+        </form>
+
+    </div>
+</div>
