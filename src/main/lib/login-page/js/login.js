@@ -1,11 +1,9 @@
  define([
     'backbone',
-    'i18n!cc/nls/bundle',
     'text!login-page/templates/login.html',
-    'jquery',
-    'bootstrap',
-    'underscore'
-], function(Backbone, i18n, template) {
+    'underscore',
+    'jquery'
+], function(Backbone, template, _) {
 
     return Backbone.View.extend({
 
@@ -13,8 +11,10 @@
 
         template: _.template(template),
 
-        initialize: function() {
+        initialize: function(options) {
             _.bindAll(this, 'login');
+
+            this.options = options;
 
             this.render();
         },
@@ -25,7 +25,8 @@
 
             this.$el.html(this.template({
                 error: errorParam && i18n['login.error.' + errorParam[1]],
-                i18n: i18n,
+                strings: this.options.strings,
+                url: this.options.url,
                 username: usernameParam && decodeURIComponent(usernameParam[1])
             }));
 
