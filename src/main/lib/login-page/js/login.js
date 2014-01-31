@@ -24,7 +24,7 @@
             var errorParam = /[&?]error=([^&]+)/.exec(window.location.search);
 
             this.$el.html(this.template({
-                error: errorParam && i18n['login.error.' + errorParam[1]],
+                error: errorParam && this.options.strings.error[errorParam[1]],
                 strings: this.options.strings,
                 url: this.options.url,
                 username: usernameParam && decodeURIComponent(usernameParam[1])
