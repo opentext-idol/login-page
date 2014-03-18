@@ -7,6 +7,11 @@
             </h3>
             <br>
         </div>
+        <% if (isNewLogin) {%>
+        <div class="alert alert-warning">
+            <strong><%-strings['important']%>:</strong> <%-strings['newCreds']%>
+        </div>
+        <% } %>
         <form class="form" method="POST" action="<%-url%>" autocomplete="off">
             <div class="control-group">
                 <label class="control-label" for="username"> <%-strings['username']%>:  </label>

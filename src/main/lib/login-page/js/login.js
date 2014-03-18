@@ -23,11 +23,15 @@
             var usernameParam = /[&?]username=([^&]+)/.exec(window.location.search);
             var errorParam = /[&?]error=([^&]+)/.exec(window.location.search);
 
+            var previousUrl = document.referrer;
+            var isConfigUrl = previousUrl.indexOf(this.options.configURL) !== -1;
+
             this.$el.html(this.template({
                 error: errorParam && this.options.strings.error[errorParam[1]],
                 strings: this.options.strings,
                 url: this.options.url,
-                username: usernameParam && decodeURIComponent(usernameParam[1])
+                username: usernameParam && decodeURIComponent(usernameParam[1]),
+                isNewLogin: isConfigUrl
             }));
 
             this.$('input').on('keypress change', function(e) {
