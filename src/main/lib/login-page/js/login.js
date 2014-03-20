@@ -22,6 +22,7 @@
         render: function() {
             var usernameParam = /[&?]username=([^&]+)/.exec(window.location.search);
             var errorParam = /[&?]error=([^&]+)/.exec(window.location.search);
+            var isDefaultLogin = /[&?]defaultLogin=true/.exec(window.location.search);
 
             var previousUrl = document.referrer;
             var isConfigUrl = previousUrl.indexOf(this.options.configURL) !== -1;
@@ -31,7 +32,8 @@
                 strings: this.options.strings,
                 url: this.options.url,
                 username: usernameParam && decodeURIComponent(usernameParam[1]),
-                isNewLogin: isConfigUrl
+                isNewLogin: isConfigUrl,
+                isDefaultLogin: isDefaultLogin
             }));
 
             this.$('input').on('keypress change', function(e) {

@@ -75,8 +75,7 @@ h2 .icon {
 
 .loginform .form-actions {
     background-color: transparent;
-    padding: 0;
-    margin: 0;
+    padding: 15px 0 0;
     clear: none;
-    display: block;
+    margin: 0;
 }

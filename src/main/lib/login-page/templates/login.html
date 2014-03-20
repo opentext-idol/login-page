@@ -8,9 +8,13 @@
             <br>
         </div>
         <% if (isNewLogin) {%>
-        <div class="alert alert-warning">
-            <strong><%-strings['important']%>:</strong> <%-strings['newCreds']%>
-        </div>
+            <div class="alert alert-warning">
+                <strong><%-strings['important']%>:</strong> <%-strings['newCreds']%>
+            </div>
+        <% } else if (isDefaultLogin) {%>
+            <div class="alert alert-warning">
+                <strong><%-strings['important']%>:</strong> <%-strings['defaultLogin']%>
+            </div>
         <% } %>
         <form class="form" method="POST" action="<%-url%>" autocomplete="off">
             <div class="control-group">
