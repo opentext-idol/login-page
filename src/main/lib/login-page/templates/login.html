@@ -19,7 +19,7 @@
         <form class="form" method="POST" action="<%-url%>" autocomplete="off">
             <div class="control-group">
                 <label class="control-label" for="username"> <%-strings['username']%>:  </label>
-                <div class="controls"><input name="username" type="text" id="username" class="span5" placeholder="<%-strings['username']%>" value="<%- username || '' %>"></div>
+                <div class="controls"><input name="username" type="text" id="username" class="span5" placeholder="<%-defaultUsername ? defaultUsername : strings['username']%>" value="<%- defaultUsername ? defaultUsername : username %>"></div>
             </div>
             <div class="control-group">
                 <label class="control-label" for="password"> <%-strings['password']%>:  </label>
