@@ -48,7 +48,11 @@
 
             this.$('button').on('click', this.login);
 
-            this.$('#username').focus();
+            if (isDefaultLogin) {
+                this.$('#password').focus();
+            } else {
+                this.$('#username').focus();
+            }
         },
 
         login: function(e) {
