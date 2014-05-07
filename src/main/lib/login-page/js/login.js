@@ -53,6 +53,14 @@
             } else {
                 this.$('#username').focus();
             }
+
+            //for expanding more info on config.json
+            this.$('.config-info a[href="#"]').click(_.bind(function (e) {
+                e.preventDefault();
+                this.expand = !this.expand;
+                this.$('.config-info a').html(this.expand ? '<i class="icon icon-minus"></i> Less' : '<i class="icon icon-plus"></i> More');
+                this.$('.config-info .more-info').toggleClass('hide');
+            }, this));
         },
 
         login: function(e) {

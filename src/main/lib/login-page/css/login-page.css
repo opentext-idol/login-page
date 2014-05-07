@@ -79,3 +79,11 @@ h2 .icon {
     clear: none;
     margin: 0;
 }
+
+.config-info .more-info {
+    margin-top: 10px;
+}
+
+.config-info a {
+    color:#AD4503;
+}
