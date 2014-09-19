@@ -11,6 +11,11 @@
 
         template: _.template(template),
 
+        iconMinusClass: 'icon-minus',
+        iconPlusClass: 'icon-plus',
+        controlGroupClass: 'control-group',
+        errorClass: 'error',
+
         initialize: function(options) {
             _.bindAll(this, 'login');
 
@@ -37,14 +42,14 @@
                 defaultUsername: defaultUsername
             }));
 
-            this.$('input').on('keypress change', function(e) {
+            this.$('input').on('keypress change', _.bind(function(e) {
                 var element = $(e.currentTarget);
 
                 if(element.val()) {
-                    element.closest('.control-group').removeClass('error')
-                           .closest('form').find('.alert-error').remove();
+                    element.closest('.' + this.controlGroupClass).removeClass(this.errorClass)
+                           .closest('form').find('.alert-' + this.errorClass).remove();
                 }
-            });
+            }, this));
 
             this.$('button').on('click', this.login);
 
@@ -58,7 +63,7 @@
             this.$('.config-info a[href="#"]').click(_.bind(function (e) {
                 e.preventDefault();
                 this.expand = !this.expand;
-                this.$('.config-info a').html(this.expand ? '<i class="icon icon-minus"></i> Less' : '<i class="icon icon-plus"></i> More');
+                this.$('.config-info a').html(this.expand ? '<i class="'+this.iconMinusClass+'"></i> Less' : '<i class="'+this.iconPlusClass+'"></i> More');
                 this.$('.config-info .more-info').toggleClass('hide');
             }, this));
         },
@@ -73,10 +78,10 @@
                 input = $(input);
 
                 if(!input.val()) {
-                    input.closest('.control-group').addClass('error');
+                    input.closest('.' + this.controlGroupClass).addClass(this.errorClass);
                     valid = false;
                 }
-            });
+            }, this);
 
             if(valid) {
                 element.closest('form').submit();
