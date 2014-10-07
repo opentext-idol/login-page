@@ -1,4 +1,4 @@
- define([
+define([
     'backbone',
     'text!login-page/templates/login.html',
     'underscore',
@@ -28,6 +28,7 @@
             var usernameParam = /[&?]username=([^&]+)/.exec(window.location.search);
             var errorParam = /[&?]error=([^&]+)/.exec(window.location.search);
             var isDefaultLogin = /[&?]defaultLogin=([^&]+)/.exec(window.location.search);
+            var isZkConfig = /[&?]isZkConfig=([^&]+)/.exec(window.location.search) && /[&?]isZkConfig=([^&]+)/.exec(window.location.search)[1] === 'true';
             var defaultUsername = isDefaultLogin ? isDefaultLogin[1] : '';
             var previousUrl = document.referrer;
             var isConfigUrl = previousUrl.indexOf(this.options.configURL) !== -1;
@@ -39,6 +40,7 @@
                 username: usernameParam && decodeURIComponent(usernameParam[1]),
                 isNewLogin: isConfigUrl,
                 isDefaultLogin: isDefaultLogin,
+                isZkConfig: isZkConfig,
                 defaultUsername: defaultUsername
             }));
 
