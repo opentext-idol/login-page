@@ -1,0 +1,30 @@
+{
+  "name": "hp-autonomy-login-page",
+  "version": "1.0.0",
+  "authors": [
+    "Alex Scown <alex.scown@hp.com>"
+  ],
+  "description": "A simple form that can be used as the login page for an application",
+  "moduleType": [
+    "amd"
+  ],
+  "keywords": [
+    "javascript",
+    "backbone",
+    "login"
+  ],
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "underscore": "~1.7.0",
+    "backbone": "~1.1.2",
+    "jquery": "components/jquery#~1.10.0"
+  }
+}
