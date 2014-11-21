@@ -1,5 +1,5 @@
 define([
-    'backbone',
+    '../.',
     'text!login-page/templates/login.html',
     'underscore',
     'jquery'
