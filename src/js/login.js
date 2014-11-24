@@ -5,6 +5,8 @@ define([
     'jquery'
 ], function(Backbone, template, _) {
 
+    var expandTemplate = _.template('<i class="<%-icon%>"></i> <%-string%>');
+
     return Backbone.View.extend({
 
         el: 'body',
@@ -65,7 +67,23 @@ define([
             this.$('.config-info a[href="#"]').click(_.bind(function (e) {
                 e.preventDefault();
                 this.expand = !this.expand;
-                this.$('.config-info a').html(this.expand ? '<i class="'+this.iconMinusClass+'"></i> Less' : '<i class="'+this.iconPlusClass+'"></i> More');
+
+                var templateParameters;
+
+                if(this.expand) {
+                    templateParameters = {
+                        icon: this.iconMinusClass,
+                        string: this.options.strings.less
+                    };
+                }
+                else {
+                    templateParameters = {
+                        icon: this.iconPlusClass,
+                        string: this.options.strings.more
+                    };
+                }
+
+                this.$('.config-info a').html(expandTemplate(templateParameters));
                 this.$('.config-info .more-info').toggleClass('hide');
             }, this));
         },
