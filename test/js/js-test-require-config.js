@@ -9,6 +9,7 @@ define(function() {
             'jasmine-sinon': 'bower_components/jasmine-sinon/lib/jasmine-sinon',
             jquery: 'bower_components/jquery/jquery',
             'js-testing': 'bower_components/hp-autonomy-js-testing-utils/src/js',
+            'js-whatever': 'bower_components/hp-autonomy-js-whatever/src',
             sinon: 'bower_components/sinon/index',
             text: 'bower_components/requirejs-text/text',
             underscore: 'bower_components/underscore/underscore',

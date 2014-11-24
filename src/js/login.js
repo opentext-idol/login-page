@@ -1,9 +1,10 @@
 define([
     'backbone',
+    'js-whatever/js/location',
     'text!login-page/templates/login.html',
     'underscore',
     'jquery'
-], function(Backbone, template, _) {
+], function(Backbone, location, template, _) {
 
     var expandTemplate = _.template('<i class="<%-icon%>"></i> <%-string%>');
 
@@ -27,10 +28,10 @@ define([
         },
 
         render: function() {
-            var usernameParam = /[&?]username=([^&]+)/.exec(window.location.search);
-            var errorParam = /[&?]error=([^&]+)/.exec(window.location.search);
-            var isDefaultLogin = /[&?]defaultLogin=([^&]+)/.exec(window.location.search);
-            var isZkConfig = /[&?]isZkConfig=([^&]+)/.exec(window.location.search) && /[&?]isZkConfig=([^&]+)/.exec(window.location.search)[1] === 'true';
+            var usernameParam = /[&?]username=([^&]+)/.exec(location.search());
+            var errorParam = /[&?]error=([^&]+)/.exec(location.search());
+            var isDefaultLogin = /[&?]defaultLogin=([^&]+)/.exec(location.search());
+            var isZkConfig = /[&?]isZkConfig=([^&]+)/.exec(location.search()) && /[&?]isZkConfig=([^&]+)/.exec(location.search())[1] === 'true';
             var defaultUsername = isDefaultLogin ? isDefaultLogin[1] : '';
             var previousUrl = document.referrer;
             var isConfigUrl = previousUrl.indexOf(this.options.configURL) !== -1;

@@ -27,7 +27,8 @@
     "underscore": "~1.7.0",
     "backbone": "~1.1.2",
     "jquery": "components/jquery#~1.10.0",
-    "bootstrap": "components/bootstrap#~2.3"
+    "bootstrap": "components/bootstrap#~2.3",
+    "hp-autonomy-js-whatever": "~1.0.13"
   },
   "devDependencies": {
     "hp-autonomy-js-testing-utils": "~1.0.1"
