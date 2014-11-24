@@ -28,5 +28,8 @@
     "backbone": "~1.1.2",
     "jquery": "components/jquery#~1.10.0",
     "bootstrap": "components/bootstrap#~2.3"
+  },
+  "devDependencies": {
+    "hp-autonomy-js-testing-utils": "~1.0.1"
   }
 }
