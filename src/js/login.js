@@ -8,6 +8,20 @@ define([
 
     var expandTemplate = _.template('<i class="<%-icon%>"></i> <%-string%>');
 
+    var more = function() {
+        return expandTemplate({
+            icon: this.iconPlusClass,
+            string: this.options.strings.more
+        })
+    };
+
+    var less = function() {
+        return expandTemplate({
+            icon: this.iconMinusClass,
+            string: this.options.strings.less
+        })
+    };
+
     return Backbone.View.extend({
 
         el: 'body',
@@ -37,14 +51,15 @@ define([
             var isConfigUrl = previousUrl.indexOf(this.options.configURL) !== -1;
 
             this.$el.html(this.template({
+                defaultUsername: defaultUsername,
                 error: errorParam && this.options.strings.error[errorParam[1]],
+                expandTemplate: more.call(this),
+                isDefaultLogin: isDefaultLogin,
+                isNewLogin: isConfigUrl,
+                isZkConfig: isZkConfig,
                 strings: this.options.strings,
                 url: this.options.url,
-                username: usernameParam && decodeURIComponent(usernameParam[1]),
-                isNewLogin: isConfigUrl,
-                isDefaultLogin: isDefaultLogin,
-                isZkConfig: isZkConfig,
-                defaultUsername: defaultUsername
+                username: usernameParam && decodeURIComponent(usernameParam[1])
             }));
 
             this.$('input').on('keypress change', _.bind(function(e) {
@@ -69,22 +84,16 @@ define([
                 e.preventDefault();
                 this.expand = !this.expand;
 
-                var templateParameters;
+                var html;
 
                 if(this.expand) {
-                    templateParameters = {
-                        icon: this.iconMinusClass,
-                        string: this.options.strings.less
-                    };
+                    html = less.call(this)
                 }
                 else {
-                    templateParameters = {
-                        icon: this.iconPlusClass,
-                        string: this.options.strings.more
-                    };
+                    html = more.call(this)
                 }
 
-                this.$('.config-info a').html(expandTemplate(templateParameters));
+                this.$('.config-info a').html(html);
                 this.$('.config-info .more-info').toggleClass('hide');
             }, this));
         },
