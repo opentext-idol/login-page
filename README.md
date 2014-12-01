@@ -24,7 +24,7 @@ This repo uses git-flow. develop is the development branch. master is the last k
 * grunt doc : Generates project documentation
 
 ## Is it any good?
-Meh.
+Yes.
 
 ## License
 Copyright 2013-2014 Hewlett-Packard Development Company, L.P.
