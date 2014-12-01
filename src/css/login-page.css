@@ -17,28 +17,6 @@ h2 .icon {
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1), inset 0 -10px 30px rgba(0, 0, 0, 0.05);
     position: relative;
 }
-.loginform.visible {
-    display: block;
-}
-
-.loginform .loginError {
-    margin: 18px 0 0;
-}
-
-.loginform .usesso {
-    position: absolute;
-    left: 0;
-    right: 0;
-    top: 100%;
-    padding: 15px 0;
-    border-radius: 0;
-    width: 422px;
-    margin: 0 0 0 -1px;
-}
-
-.loginform .control {
-    overflow: hidden;
-}
 
 .loginform .form {
     margin-bottom: 10px;
@@ -57,4 +35,8 @@ h2 .icon {
 
 .config-info a {
     color:#AD4503;
+}
+
+.login-header {
+    margin-bottom: 30px;
 }
