@@ -37,5 +37,9 @@
   "devDependencies": {
     "hp-autonomy-js-testing-utils": "~1.0.1",
     "jasmine-jquery": "~1.5.8"
+  },
+  "resolutions": {
+    "bootstrap": "~2.3",
+    "jquery": "~1.10.0"
   }
 }
