@@ -156,16 +156,20 @@ define([
 
                 if(element.val()) {
                     element.closest('.' + this.controlGroupClass).removeClass(this.errorClass)
-                           .closest('form').find('.alert-' + this.errorClass).remove();
+                        .closest('form').find('.alert-' + this.errorClass).remove();
                 }
             }, this));
 
             this.$('button').on('click', this.login);
 
-            if (isDefaultLogin) {
-                this.$('#password').focus();
+            var $focusElement = isDefaultLogin ? this.$('#password') : this.$('#username');
+
+            if(this.options.hasAnimation) {
+                this.$('.loginscreen').on('animationend webkitAnimationEnd', function() {
+                    $focusElement.focus();
+                });
             } else {
-                this.$('#username').focus();
+                $focusElement.focus();
             }
 
             //for expanding more info on config.json
