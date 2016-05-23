@@ -16,9 +16,9 @@ define([
     describe('Login Page', function() {
         describe('without parameters', function() {
             beforeEach(function() {
-                spyOn(location, 'search').andReturn('');
+                spyOn(location, 'search').and.returnValue('');
 
-                this.submissionSpy = jasmine.createSpy().andCallFake(function(e) {
+                this.submissionSpy = jasmine.createSpy().and.callFake(function(e) {
                     e.preventDefault();
                 });
 
@@ -66,7 +66,7 @@ define([
 
         describe('with error and username parameters', function() {
             beforeEach(function() {
-                spyOn(location, 'search').andReturn('?error=authentication&username=arthur.dent');
+                spyOn(location, 'search').and.returnValue('?error=authentication&username=arthur.dent');
 
                 this.loginPage = new TestableLoginPage({
                     strings: {
@@ -98,7 +98,7 @@ define([
 
         describe('with a defaultLogin parameter', function() {
             beforeEach(function() {
-                spyOn(location, 'search').andReturn('?defaultLogin=admin');
+                spyOn(location, 'search').and.returnValue('?defaultLogin=admin');
 
                 this.loginPage = new TestableLoginPage({
                     strings: {
@@ -147,7 +147,7 @@ define([
 
         describe('with a zkConfig=true parameter', function() {
             beforeEach(function() {
-                spyOn(location, 'search').andReturn('?isZkConfig=true');
+                spyOn(location, 'search').and.returnValue('?isZkConfig=true');
 
                 this.templateSpy = jasmine.createSpy();
 
@@ -160,9 +160,9 @@ define([
 
             it('should pass the parameter through to the template', function() {
                 expect(this.templateSpy).toHaveCallCount(1);
-                expect(this.templateSpy.calls[0].args[0].isZkConfig).toBe(true);
+                expect(this.templateSpy.calls.argsFor(0)[0].isZkConfig).toBe(true);
             });
-        })
+        });
 
     });
 
