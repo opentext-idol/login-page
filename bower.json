@@ -2,11 +2,11 @@
   "name": "hp-autonomy-login-page",
   "version": "1.0.0",
   "authors": [
-    "Liam Goodacre <liam.goodacre@hp.com>",
-    "Matthew Gordon <matthew.gordon2@hp.com>",
+    "Liam Goodacre <liam.goodacre@hpe.com>",
+    "Matthew Gordon <matthew.gordon2@hpe.com>",
     "Xiaochen Guo",
-    "Alyona Ivanova <alyona.ivanova@hp.com>",
-    "Alex Scown <alex.scown@hp.com>"
+    "Alyona Ivanova <alyona.ivanova@hpe.com>",
+    "Alex Scown <alex.scown@hpe.com>"
   ],
   "description": "A simple form that can be used as the login page for an application",
   "moduleType": [
@@ -28,18 +28,18 @@
     "travis.sh"
   ],
   "dependencies": {
-    "underscore": "~1.7.0",
-    "backbone": "~1.1.2",
+    "underscore": "1.7.0",
+    "backbone": "1.1.2",
     "jquery": "components/jquery#~1.10.0",
-    "bootstrap": "components/bootstrap#~2.3",
-    "hp-autonomy-js-whatever": "~1.0.13"
+    "bootstrap": "components/bootstrap#2.3",
+    "hp-autonomy-js-whatever": "1.1.0"
   },
   "devDependencies": {
-    "hp-autonomy-js-testing-utils": "~1.0.1",
-    "jasmine-jquery": "~1.5.8"
+    "hp-autonomy-js-testing-utils": "2.1.0",
+    "jasmine-jquery": "2.1.1"
   },
   "resolutions": {
-    "bootstrap": "~2.3",
-    "jquery": "~1.10.0"
+    "bootstrap": "2.3",
+    "jquery": "1.10.2"
   }
 }
