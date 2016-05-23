@@ -154,7 +154,7 @@ module.exports = (grunt) ->
           repo: 'https://' + process.env.GH_TOKEN + '@github.com/' + process.env.TRAVIS_REPO_SLUG
           user:
             name: 'Travis CI Server'
-            email: 'alex.scown@hp.com'
+            email: 'alex.scown@hpe.com'
 
   grunt.loadNpmTasks 'grunt-contrib-clean'
   grunt.loadNpmTasks 'grunt-contrib-connect'
