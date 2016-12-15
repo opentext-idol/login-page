@@ -51,6 +51,9 @@ define([
     /**
      * @typedef LoginOptions
      * @property {string} configUrl Url that users visit to initially configure the system
+     * @property {string} [csrfParameterName] The name of the csrf input. If not defined, an input will not be rendered
+     * @property {string} [csrfUrl] Url from which to obtain CSRF token before form submission. This url is expected to
+     * return a JSON object with a token property containing the token as a string
      * @property {LoginStrings} strings Strings passed to the template
      * @property {string} url Form submission url passed to the template
      */
@@ -71,6 +74,8 @@ define([
         /**
          * @typedef TemplateOptions
          * @desc Options that are passed to the template
+         * @property {string} [csrfParameterName] The name of the csrf input. If not defined, an input will not be
+         * rendered
          * @property {string} [defaultUsername] Username to pre-populate the username field with. Set to the value of
          * the defaultLogin query parameter
          * @property {string} [error] Error message to display. Set to strings.error[&lt;value of error query parameter&gt;]
@@ -140,6 +145,7 @@ define([
             var isConfigUrl = previousUrl.indexOf(this.options.configURL) !== -1;
 
             this.$el.html(this.template({
+                csrfParameterName: this.options.csrfParameterName,
                 defaultUsername: defaultUsername,
                 error: errorParam && this.options.strings.error[errorParam[1]],
                 expandTemplate: more.call(this),
@@ -199,20 +205,34 @@ define([
         login: function(e) {
             e.preventDefault();
 
-            var element = $(e.currentTarget);
             var valid = true;
 
             _.each(this.$('input'), function(input) {
                 input = $(input);
 
-                if(!input.val()) {
+                // don't check the csrf input if it exists
+                if(!input.val() && input.attr('type') !== 'hidden') {
                     input.closest('.' + this.controlGroupClass).addClass(this.errorClass);
                     valid = false;
                 }
             }, this);
 
             if(valid) {
-                element.closest('form').submit();
+                var promise;
+
+                if(this.options.csrfUrl && this.options.csrfParameterName) {
+                    promise = $.ajax(this.options.csrfUrl)
+                        .done(_.bind(function(response) {
+                            this.$('input[name="' + this.options.csrfParameterName + '"]').val(response.token)
+                        }, this))
+                }
+                else {
+                    promise = $.when();
+                }
+
+                promise.done(_.bind(function() {
+                    this.$('form').submit();
+                }, this))
             }
         }
 
