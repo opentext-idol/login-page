@@ -39,6 +39,7 @@
   },
   "resolutions": {
     "bootstrap": "2.3",
-    "jquery": "1.10.2"
+    "jquery": "1.10.2",
+    "jasmine": "2.4"
   }
 }
