@@ -6,7 +6,8 @@
 define([
     'login-page/js/login',
     'js-whatever/js/location',
-    'jasmine-jquery'
+    'jasmine-jquery',
+    'jasmine-ajax'
 ], function(LoginPage, location) {
 
     var TestableLoginPage = LoginPage.extend({
@@ -162,6 +163,59 @@ define([
                 expect(this.templateSpy).toHaveCallCount(1);
                 expect(this.templateSpy.calls.argsFor(0)[0].isZkConfig).toBe(true);
             });
+        });
+
+        describe('with CSRF parameters', function() {
+            beforeEach(function() {
+                jasmine.Ajax.install();
+
+                this.submissionSpy = jasmine.createSpy().and.callFake(function(e) {
+                    e.preventDefault();
+                });
+
+                this.loginPage = new TestableLoginPage({
+                    csrfParameterName: 'csrf-token',
+                    csrfUrl: '/csrf-token',
+                    strings: {
+                        title: 'Login to My Super Awesome Application'
+                    }
+                });
+
+                this.loginPage.$('form').submit(this.submissionSpy);
+            });
+
+            afterEach(function() {
+                jasmine.Ajax.uninstall();
+            });
+
+            it('should render a CSRF input with the given name', function() {
+                expect(this.loginPage.$('[name="csrf-token"]')).toHaveLength(1);
+            });
+
+            describe('when the login button is clicked', function() {
+                beforeEach(function() {
+                    this.loginPage.$('[name="username"]').val('arthur.dent');
+                    this.loginPage.$('[name="password"]').val('42');
+                    this.loginPage.$('button').click();
+
+                    jasmine.Ajax.requests.mostRecent().respondWith({
+                        status: 200,
+                        contentType: 'application/json',
+                        responseText: '{"token": "super-secret-token"}'
+                    });
+                });
+
+                it('should request the CSRF token from the server', function() {
+                    var request = jasmine.Ajax.requests.mostRecent();
+
+                    expect(request.url).toBe('/csrf-token');
+                    expect(this.loginPage.$('[name="csrf-token"]')).toHaveValue('super-secret-token');
+                });
+
+                it('should submit the token with the form', function() {
+                    expect(this.loginPage.$('form').serialize()).toContain('csrf-token=super-secret-token')
+                });
+            })
         });
 
     });
