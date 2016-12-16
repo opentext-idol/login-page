@@ -10,12 +10,11 @@ define(function() {
             // lib
             backbone: 'bower_components/backbone/backbone',
             bootstrap: 'bower_components/bootstrap/js/bootstrap',
+            'jasmine-ajax': 'bower_components/jasmine-ajax/lib/mock-ajax',
             'jasmine-jquery': 'bower_components/jasmine-jquery/lib/jasmine-jquery',
-            'jasmine-sinon': 'bower_components/jasmine-sinon/lib/jasmine-sinon',
             jquery: 'bower_components/jquery/jquery',
             'js-testing': 'bower_components/hp-autonomy-js-testing-utils/src/js',
             'js-whatever': 'bower_components/hp-autonomy-js-whatever/src',
-            sinon: 'bower_components/sinon/index',
             text: 'bower_components/requirejs-text/text',
             underscore: 'bower_components/underscore/underscore',
 
