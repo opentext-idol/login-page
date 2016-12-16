@@ -20,6 +20,7 @@
             </div>
         <% } %>
         <form class="form" method="POST" action="<%-url%>" autocomplete="off">
+            <% if(csrfParameterName) { %><input type="hidden" name="<%-csrfParameterName%>"><% } %>
             <div class="control-group">
                 <label class="control-label" for="username"> <%-strings['username']%>:  </label>
                 <div class="controls">

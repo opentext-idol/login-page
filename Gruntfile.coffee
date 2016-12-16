@@ -12,7 +12,6 @@ module.exports = (grunt) ->
   specs = 'test/js/spec/**/*.js'
   styles = 'bower_components/hp-autonomy-js-testing-utils/src/css/bootstrap-stub.css'
   serverPort = 8000
-  host = "http://localhost:#{serverPort}/"
   helpers = 'bower_components/hp-autonomy-js-testing-utils/src/js/jasmine-custom-matcher.js'
 
   grunt.initConfig
@@ -28,13 +27,13 @@ module.exports = (grunt) ->
       server:
         options:
           port: serverPort
+          useAvailablePort: true
     jasmine:
       test:
         src: sourcePath
         options:
           helpers: helpers
-          host: host
-          keepRunner: true
+          keepRunner: false
           outfile: jasmineSpecRunner
           specs: specs
           styles: styles
@@ -45,8 +44,7 @@ module.exports = (grunt) ->
         src: sourcePath
         options:
           helpers: helpers
-          host: host
-          keepRunner: true
+          keepRunner: false
           outfile: coverageSpecRunner
           specs: specs
           styles: styles
@@ -164,10 +162,10 @@ module.exports = (grunt) ->
   grunt.loadNpmTasks 'grunt-gh-pages'
   grunt.loadNpmTasks 'grunt-jsdoc'
 
-  grunt.registerTask 'default', ['lint', 'connect:server', 'jasmine:test', 'jasmine:coverage']
-  grunt.registerTask 'test', ['connect:server', 'jasmine:test']
-  grunt.registerTask 'browser-test', ['connect:server:keepalive']
-  grunt.registerTask 'coverage', ['connect:server', 'jasmine:coverage']
+  grunt.registerTask 'default', ['lint', 'jasmine:test', 'jasmine:coverage']
+  grunt.registerTask 'test', ['jasmine:test']
+  grunt.registerTask 'browser-test', ['jasmine:test:build', 'connect:server:keepalive']
+  grunt.registerTask 'coverage', ['jasmine:coverage']
   grunt.registerTask 'lint', ['jshint', 'coffeelint']
   grunt.registerTask 'doc', ['jsdoc']
   grunt.registerTask 'push-doc', ['doc', 'gh-pages:default']
