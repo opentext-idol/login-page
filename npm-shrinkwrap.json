@@ -364,6 +364,11 @@
       "from": "entities@>=1.0.0 <1.1.0",
       "resolved": "https://registry.npmjs.org/entities/-/entities-1.0.0.tgz"
     },
+    "es5-shim": {
+      "version": "4.5.9",
+      "from": "es5-shim@>=4.0.1 <5.0.0",
+      "resolved": "https://registry.npmjs.org/es5-shim/-/es5-shim-4.5.9.tgz"
+    },
     "es6-promise": {
       "version": "4.0.5",
       "from": "es6-promise@>=4.0.3 <4.1.0",
@@ -609,9 +614,9 @@
       }
     },
     "grunt-contrib-jasmine": {
-      "version": "1.1.0",
-      "from": "grunt-contrib-jasmine@>=1.0.3 <2.0.0",
-      "resolved": "https://registry.npmjs.org/grunt-contrib-jasmine/-/grunt-contrib-jasmine-1.1.0.tgz",
+      "version": "1.0.3",
+      "from": "grunt-contrib-jasmine@>=1.0.3 <1.1.0",
+      "resolved": "https://registry.npmjs.org/grunt-contrib-jasmine/-/grunt-contrib-jasmine-1.0.3.tgz",
       "dependencies": {
         "lodash": {
           "version": "2.4.2",
@@ -922,9 +927,9 @@
       }
     },
     "jasmine-core": {
-      "version": "2.4.1",
-      "from": "jasmine-core@>=2.4.0 <2.5.0",
-      "resolved": "https://registry.npmjs.org/jasmine-core/-/jasmine-core-2.4.1.tgz"
+      "version": "2.6.1",
+      "from": "jasmine-core@>=2.2.0 <3.0.0",
+      "resolved": "https://registry.npmjs.org/jasmine-core/-/jasmine-core-2.6.1.tgz"
     },
     "jodid25519": {
       "version": "1.0.2",
