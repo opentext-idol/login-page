@@ -1,3 +1,4 @@
+sudo: false
 language: node_js
 node_js:
 - "0.10"
@@ -7,7 +8,7 @@ branches:
   - develop
 env:
   global:
-    - secure: "P1byZUAJVawA9oURn3e5aNHC5c4VPSSwRzbuQl0RAsOvMP0BXeVU94BpU7/Qmi51O2zTuu3AaQ2y+l2o3EWwlzzBl45JCNnU8LUm9ggBhryb9BA9/E0p/v4aurLVdVJZjNapBxcUYr4tHJrVQiIOzM7JkCVYISppiMvqH2nEs9c="
+    - secure: "LbcaSrPsBZEur3QqmGkzHz4b+vUfWmdV5nuO8zxGKDJiJGJdOrruEF8vDzS0hqJX6cFVpa73iBKbRdGNVHV4zjDw3jC3wSzplWa1ACzyJrO2DZi3tqbNYDLdclXRhIYrnru+iO9ThFPMNzoLGpJPgRLOfebnf2fixO4cJmtIEgU="
 before_install:
 - npm install -g grunt-cli
 - npm install -g bower
