@@ -149,10 +149,7 @@ module.exports = (grunt) ->
         options:
           base: 'doc'
           message: 'Update documentation'
-          repo: 'https://' + process.env.GH_TOKEN + '@github.com/' + process.env.TRAVIS_REPO_SLUG
-          user:
-            name: 'Travis CI Server'
-            email: 'alex.scown@hpe.com'
+          repo: 'git@github.com:' + process.env.TRAVIS_REPO_SLUG
 
   grunt.loadNpmTasks 'grunt-contrib-clean'
   grunt.loadNpmTasks 'grunt-contrib-connect'
