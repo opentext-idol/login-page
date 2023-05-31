@@ -1,6 +1,6 @@
 {
   "name": "hp-autonomy-login-page",
-  "repository": "https://github.com/microfocus-idol/login-page",
+  "repository": "https://github.com/opentext-idol/login-page",
   "version": "1.0.0",
   "devDependencies": {
     "coffeelint": "^1.6.0",

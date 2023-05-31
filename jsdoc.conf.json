@@ -11,7 +11,7 @@
         "outputSourcePath"      : true,
         "systemName"            : "OpenText Login Page",
         "footer"                : "",
-        "copyright"             : "(c) Copyright 2013-2015 OpenText or one of its affiliates. Licensed under the MIT License (the \"License\"); you may not use this file except in compliance with the License.",
+        "copyright"             : "Copyright 2013-2015 OpenText. Licensed under the MIT License (the \"License\"); you may not use this file except in compliance with the License.",
         "navType"               : "vertical",
         "theme"                 : "cerulean",
         "linenums"              : true,
