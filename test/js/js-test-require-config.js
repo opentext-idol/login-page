@@ -17,15 +17,15 @@ define(function() {
         baseUrl: '.',
         paths: {
             // lib
-            backbone: 'bower_components/backbone/backbone',
-            bootstrap: 'bower_components/bootstrap/js/bootstrap',
-            'jasmine-ajax': 'bower_components/jasmine-ajax/lib/mock-ajax',
-            'jasmine-jquery': 'bower_components/jasmine-jquery/lib/jasmine-jquery',
-            jquery: 'bower_components/jquery/jquery',
-            'js-testing': 'bower_components/hp-autonomy-js-testing-utils/src/js',
-            'js-whatever': 'bower_components/hp-autonomy-js-whatever/src',
-            text: 'bower_components/requirejs-text/text',
-            underscore: 'bower_components/underscore/underscore',
+            backbone: 'node_modules/backbone/backbone',
+            bootstrap: 'node_modules/bootstrap/dist/js/bootstrap',
+            'jasmine-ajax': 'node_modules/jasmine-ajax/lib/mock-ajax',
+            'jasmine-jquery': 'node_modules/jasmine-jquery/lib/jasmine-jquery',
+            jquery: 'node_modules/jquery/dist/jquery',
+            'js-testing': 'node_modules/hp-autonomy-js-testing-utils/src/js',
+            'js-whatever': 'node_modules/hp-autonomy-js-whatever/src',
+            text: 'node_modules/requirejs-text/text',
+            underscore: 'node_modules/underscore/underscore',
 
             //dir
             test: 'test/js'
