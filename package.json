@@ -1,12 +1,14 @@
 {
   "name": "hp-autonomy-login-page",
-  "version": "1.4.1",
+  "version": "2.0.0",
   "repository": "https://github.com/opentext-idol/login-page",
+  "engines": {
+    "node": ">=20"
+  },
   "dependencies": {
     "backbone": "^1.2.3",
-    "hp-autonomy-js-whatever": "opentext-idol/jsWhatever#2.13.1",
+    "hp-autonomy-js-whatever": "opentext-idol/jsWhatever#3.0.0",
     "jquery": "^3.7.1",
-    "requirejs-text": "^2.0.15",
     "underscore": "^1.13.8"
   },
   "devDependencies": {
