@@ -111,27 +111,27 @@ module.exports = Backbone.View.extend(/** @lends module:login-page/js/login.Logi
 
     /**
      * @desc CSS class used for the show less button when in default login mode
-     * @default icon-minus
+     * @default glyphicon glyphicon-minus
      */
-    iconMinusClass: 'icon-minus',
+    iconMinusClass: 'glyphicon glyphicon-minus',
 
     /**
      * @desc CSS class used for the show more button when in default login mode
-     * @default icon-plus
+     * @default glyphicon glyphicon-plus
      */
-    iconPlusClass: 'icon-plus',
+    iconPlusClass: 'glyphicon glyphicon-plus',
 
     /**
-     * @desc CSS class used for grouping controls. Set this to form-group if using Bootstrap 3
-     * @default control-group
+     * @desc CSS class used for grouping controls. Set this to control-group if using Bootstrap 2
+     * @default form-group
      */
-    controlGroupClass: 'control-group',
+    controlGroupClass: 'form-group',
 
     /**
-     * @desc CSS class used to indicate errors. Set to has-error if using Bootstrap 3
-     * @default error
+     * @desc CSS class used to indicate errors. Set to error if using Bootstrap 2
+     * @default danger
      */
-    errorClass: 'error',
+    errorClass: 'danger',
 
     initialize: function(options) {
         _.bindAll(this, 'login');

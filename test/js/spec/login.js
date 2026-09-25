@@ -70,7 +70,7 @@ define([
             });
 
             it('should not display an error message', function() {
-                expect(this.loginPage.$('.alert-error')).toHaveLength(0)
+                expect(this.loginPage.$('.alert-danger')).toHaveLength(0)
             });
         });
 
@@ -89,8 +89,8 @@ define([
             });
 
             it('should display an error message in the presence of an error parameter', function() {
-                expect(this.loginPage.$('.alert-error')).toHaveLength(1);
-                expect(this.loginPage.$('.alert-error').text().trim()).toBe('Failure to authenticate');
+                expect(this.loginPage.$('.alert-danger')).toHaveLength(1);
+                expect(this.loginPage.$('.alert-danger').text().trim()).toBe('Failure to authenticate');
             });
 
             it('should pre-populate the username field', function() {
@@ -98,11 +98,11 @@ define([
             });
 
             it('should remove an error when a user types in the box', function() {
-                expect(this.loginPage.$('.alert-error')).toHaveLength(1);
+                expect(this.loginPage.$('.alert-danger')).toHaveLength(1);
 
                 this.loginPage.$('input').keypress();
 
-                expect(this.loginPage.$('.alert-error')).toHaveLength(0);
+                expect(this.loginPage.$('.alert-danger')).toHaveLength(0);
             });
         });
 
