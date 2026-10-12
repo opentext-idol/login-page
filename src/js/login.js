@@ -131,7 +131,7 @@ module.exports = Backbone.View.extend(/** @lends module:login-page/js/login.Logi
      * @desc CSS class used to indicate errors. Set to error if using Bootstrap 2
      * @default danger
      */
-    errorClass: 'danger',
+    errorClass: 'has-error',
 
     initialize: function(options) {
         _.bindAll(this, 'login');
@@ -171,7 +171,7 @@ module.exports = Backbone.View.extend(/** @lends module:login-page/js/login.Logi
 
             if(element.val()) {
                 element.closest('.' + this.controlGroupClass).removeClass(this.errorClass)
-                    .closest('form').find('.alert-' + this.errorClass).remove();
+                    .closest('form').find('.alert-danger').remove();
             }
         }, this));
 
